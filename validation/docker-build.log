@@ -1,0 +1,8 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  181.8kB
+
+Step 1/14 : FROM rust:1.96.0-bookworm AS build
+failed to resolve reference "docker.io/library/rust:1.96.0-bookworm": failed to do request: Head "https://registry-1.docker.io/v2/library/rust/manifests/1.96.0-bookworm": dial tcp 31.13.96.208:443: i/o timeout

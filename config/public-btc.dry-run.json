@@ -1,0 +1,83 @@
+{
+  "dex": "demo",
+  "network": "testnet",
+  "intervalMs": 3000,
+  "dryRun": true,
+  "stateFile": "../state/oracle.json",
+  "markPriceSets": 0,
+  "sourceTimeoutMs": 2000,
+  "publishTimeoutMs": 5000,
+  "sources": {
+    "binance": {
+      "kind": "json",
+      "independenceGroup": "binance",
+      "weight": "1",
+      "url": "https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT",
+      "pricePath": "lastPrice",
+      "timestampPath": "closeTime",
+      "timestampUnit": "ms",
+      "bidPath": "bidPrice",
+      "askPath": "askPrice",
+      "marketStatus": "open",
+      "maxRetries": 1,
+      "minRequestIntervalMs": 500
+    },
+    "okx": {
+      "kind": "json",
+      "independenceGroup": "okx",
+      "weight": "1",
+      "url": "https://www.okx.com/api/v5/market/ticker?instId=BTC-USDT",
+      "pricePath": "data.0.last",
+      "timestampPath": "data.0.ts",
+      "timestampUnit": "ms",
+      "bidPath": "data.0.bidPx",
+      "askPath": "data.0.askPx",
+      "marketStatus": "open",
+      "maxRetries": 1,
+      "minRequestIntervalMs": 500
+    },
+    "kucoin": {
+      "kind": "json",
+      "independenceGroup": "kucoin",
+      "weight": "1",
+      "url": "https://api.kucoin.com/api/v1/market/orderbook/level1?symbol=BTC-USDT",
+      "pricePath": "data.price",
+      "timestampPath": "data.time",
+      "timestampUnit": "ms",
+      "bidPath": "data.bestBid",
+      "askPath": "data.bestAsk",
+      "marketStatus": "open",
+      "maxRetries": 1,
+      "minRequestIntervalMs": 500
+    }
+  },
+  "feeds": [
+    {
+      "coin": "BTC",
+      "szDecimals": 5,
+      "sources": [
+        "binance",
+        "okx",
+        "kucoin"
+      ],
+      "minSources": 3,
+      "minIndependentGroups": 3,
+      "maxGroupWeightShareBps": "4000",
+      "maxSourceAgeMs": 5000,
+      "maxFutureMs": 1000,
+      "maxSpreadBps": "50",
+      "outlierMadMultiplier": "6",
+      "outlierMinBandBps": "10",
+      "maxConfidenceBps": "20",
+      "maxJumpBps": "1000",
+      "blockWhenMarketClosed": false,
+      "blockWhenMarketUnknown": true
+    }
+  ],
+  "monitoring": {
+    "enabled": true,
+    "host": "127.0.0.1",
+    "port": 9109,
+    "readinessMaxAgeMs": 10000
+  }
+}

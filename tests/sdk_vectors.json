@@ -1,0 +1,172 @@
+[
+  {
+    "mainnet": false,
+    "action": {
+      "type": "perpDeploy",
+      "setOracle": {
+        "dex": "demo",
+        "oraclePxs": [
+          [
+            "demo:AAPL",
+            "230.2"
+          ],
+          [
+            "demo:TSLA",
+            "390.22"
+          ]
+        ],
+        "markPxs": [],
+        "externalPerpPxs": [
+          [
+            "demo:AAPL",
+            "230.2"
+          ],
+          [
+            "demo:TSLA",
+            "390.22"
+          ]
+        ]
+      }
+    },
+    "nonce": 1700000000123,
+    "hash": "0b956d6294c843c263f55a86bc984a6282fbc8362e7396ed8891bd8fcfad67a6",
+    "signature": {
+      "r": "0xefe37c7a430b1a6036d78e1140f07e54fb111cdfad56f86024d6f38640863548",
+      "s": "0x654470dfefbe1885feb93b3ccc9dffd5c580a37edbf6ac3062c850885bd211d1",
+      "v": 27
+    }
+  },
+  {
+    "mainnet": false,
+    "action": {
+      "type": "perpDeploy",
+      "setOracle": {
+        "dex": "demo",
+        "oraclePxs": [
+          [
+            "demo:AAPL",
+            "230.2"
+          ],
+          [
+            "demo:TSLA",
+            "390.22"
+          ]
+        ],
+        "markPxs": [
+          [
+            [
+              "demo:AAPL",
+              "230.2"
+            ],
+            [
+              "demo:TSLA",
+              "390.22"
+            ]
+          ]
+        ],
+        "externalPerpPxs": [
+          [
+            "demo:AAPL",
+            "230.2"
+          ],
+          [
+            "demo:TSLA",
+            "390.22"
+          ]
+        ]
+      }
+    },
+    "nonce": 1700000000123,
+    "hash": "2bd4942dc58a4902990da3cf26a4db9e41d5be2ac9c3aa422f945dda87b203a2",
+    "signature": {
+      "r": "0xe25fe94197456229b49a0fac2b69a523f5d255d4b11d0e94f910ce07f7c25620",
+      "s": "0x1d358e37d8c2b971e2cb2a3870f2e444b00637c5cd10beb4b8bf99151633fa43",
+      "v": 28
+    }
+  },
+  {
+    "mainnet": true,
+    "action": {
+      "type": "perpDeploy",
+      "setOracle": {
+        "dex": "demo",
+        "oraclePxs": [
+          [
+            "demo:AAPL",
+            "230.2"
+          ],
+          [
+            "demo:TSLA",
+            "390.22"
+          ]
+        ],
+        "markPxs": [],
+        "externalPerpPxs": [
+          [
+            "demo:AAPL",
+            "230.2"
+          ],
+          [
+            "demo:TSLA",
+            "390.22"
+          ]
+        ]
+      }
+    },
+    "nonce": 1700000000123,
+    "hash": "0b956d6294c843c263f55a86bc984a6282fbc8362e7396ed8891bd8fcfad67a6",
+    "signature": {
+      "r": "0xfdc0a212a6c9a1dfc028a0f0e062acf46d1132d371b487d52abf65641aa288da",
+      "s": "0x31fccde693ffc7c8788827b76a8640066924cdd1e37f77497831304f66a67b44",
+      "v": 27
+    }
+  },
+  {
+    "mainnet": true,
+    "action": {
+      "type": "perpDeploy",
+      "setOracle": {
+        "dex": "demo",
+        "oraclePxs": [
+          [
+            "demo:AAPL",
+            "230.2"
+          ],
+          [
+            "demo:TSLA",
+            "390.22"
+          ]
+        ],
+        "markPxs": [
+          [
+            [
+              "demo:AAPL",
+              "230.2"
+            ],
+            [
+              "demo:TSLA",
+              "390.22"
+            ]
+          ]
+        ],
+        "externalPerpPxs": [
+          [
+            "demo:AAPL",
+            "230.2"
+          ],
+          [
+            "demo:TSLA",
+            "390.22"
+          ]
+        ]
+      }
+    },
+    "nonce": 1700000000123,
+    "hash": "2bd4942dc58a4902990da3cf26a4db9e41d5be2ac9c3aa422f945dda87b203a2",
+    "signature": {
+      "r": "0xf5404aa00ffe46bfa9d2b36bc5631f92536f8af46715c40fbfe08fff11f05590",
+      "s": "0x3163bf11ff1acaa5e8cf30ce2c63ce0dc8c59ba7ea319326d7073e004b052244",
+      "v": 27
+    }
+  }
+]

@@ -1,0 +1,98 @@
+{
+  "dex": "demo",
+  "network": "testnet",
+  "intervalMs": 3000,
+  "dryRun": false,
+  "stateFile": "../state/oracle.json",
+  "markPriceSets": 0,
+  "sourceTimeoutMs": 2000,
+  "publishTimeoutMs": 5000,
+  "sources": {
+    "licensed-a": {
+      "kind": "json",
+      "independenceGroup": "licensed-a",
+      "weight": "1",
+      "url": "https://provider-a.example/quotes/{symbol}",
+      "symbols": {
+        "AAPL": "AAPL"
+      },
+      "headers": {
+        "Authorization": "Bearer ${PROVIDER_A_TOKEN}"
+      },
+      "pricePath": "data.price",
+      "timestampPath": "data.timestamp",
+      "timestampUnit": "ms",
+      "marketStatusPath": "data.marketStatus",
+      "marketStatus": "unknown",
+      "maxRetries": 1,
+      "minRequestIntervalMs": 100
+    },
+    "licensed-b": {
+      "kind": "json",
+      "independenceGroup": "licensed-b",
+      "weight": "1",
+      "url": "https://provider-b.example/quotes/{symbol}",
+      "symbols": {
+        "AAPL": "AAPL"
+      },
+      "headers": {
+        "Authorization": "Bearer ${PROVIDER_B_TOKEN}"
+      },
+      "pricePath": "data.price",
+      "timestampPath": "data.timestamp",
+      "timestampUnit": "ms",
+      "marketStatusPath": "data.marketStatus",
+      "marketStatus": "unknown",
+      "maxRetries": 1,
+      "minRequestIntervalMs": 100
+    },
+    "licensed-c": {
+      "kind": "json",
+      "independenceGroup": "licensed-c",
+      "weight": "1",
+      "url": "https://provider-c.example/quotes/{symbol}",
+      "symbols": {
+        "AAPL": "AAPL"
+      },
+      "headers": {
+        "Authorization": "Bearer ${PROVIDER_C_TOKEN}"
+      },
+      "pricePath": "data.price",
+      "timestampPath": "data.timestamp",
+      "timestampUnit": "ms",
+      "marketStatusPath": "data.marketStatus",
+      "marketStatus": "unknown",
+      "maxRetries": 1,
+      "minRequestIntervalMs": 100
+    }
+  },
+  "feeds": [
+    {
+      "coin": "AAPL",
+      "szDecimals": 2,
+      "sources": [
+        "licensed-a",
+        "licensed-b",
+        "licensed-c"
+      ],
+      "minSources": 3,
+      "minIndependentGroups": 3,
+      "maxGroupWeightShareBps": "4000",
+      "maxSourceAgeMs": 5000,
+      "maxFutureMs": 1000,
+      "maxSpreadBps": "50",
+      "outlierMadMultiplier": "6",
+      "outlierMinBandBps": "10",
+      "maxConfidenceBps": "20",
+      "maxJumpBps": "1000",
+      "blockWhenMarketClosed": true,
+      "blockWhenMarketUnknown": true
+    }
+  ],
+  "monitoring": {
+    "enabled": true,
+    "host": "127.0.0.1",
+    "port": 9109,
+    "readinessMaxAgeMs": 10000
+  }
+}

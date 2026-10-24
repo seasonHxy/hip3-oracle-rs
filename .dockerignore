@@ -1,0 +1,6 @@
+target
+state
+config/*.local.json
+.env
+.env.*
+.git

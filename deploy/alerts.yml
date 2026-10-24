@@ -1,0 +1,21 @@
+groups:
+  - name: hip3-oracle-rust
+    rules:
+      - alert: Hip3OracleNoSuccessfulCycle
+        expr: time() - hip3_oracle_last_success_timestamp_seconds > 9
+        for: 3s
+        labels:
+          severity: critical
+        annotations:
+          summary: "HIP-3 oracle has no recent confirmed/simulated cycle; inspect live_mode and pending"
+      - alert: Hip3OracleBlocked
+        expr: increase(hip3_oracle_failures_total[1m]) > 0
+        labels:
+          severity: warning
+        annotations:
+          summary: "HIP-3 oracle blocked at least one cycle"
+      - alert: Hip3OracleDown
+        expr: up{job="hip3-oracle-rust"} == 0
+        for: 10s
+        labels:
+          severity: critical

@@ -1,0 +1,27 @@
+services:
+  oracle:
+    build: .
+    init: true
+    restart: unless-stopped
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    stop_grace_period: 60s
+    volumes:
+      - oracle-state:/app/state
+    tmpfs:
+      - /tmp:size=16m,noexec,nosuid
+    ports:
+      - "127.0.0.1:9109:9109"
+    # Container example binds monitoring to all container interfaces; host port is loopback only.
+    # Live deployment: mount /app/config/live.local.json read-only, inject secrets
+    # via your secrets manager, then override command with run --live.
+    command: ["--config", "/app/config/container.example.json", "run"]
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--max-time", "2", "http://127.0.0.1:9109/readyz"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 15s
+volumes:
+  oracle-state:

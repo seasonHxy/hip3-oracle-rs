@@ -1,0 +1,46 @@
+   Compiling hip3-oracle-rs v0.1.0 (/tmp/hip3-oracle-rs-standalone)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.84s
+     Running unittests src/lib.rs (rust/target/debug/deps/hip3_oracle_rs-51a53a3352aa5084)
+
+running 6 tests
+test transport::tests::field_paths_and_decimals_preserve_exact_input ... ok
+test transport::tests::rest_parsing_retry_redirect_and_timeout ... ok
+test engine::tests::pause_and_jump_block_before_exchange ... ok
+test engine::tests::acknowledged_and_read_back_commit ... ok
+test engine::tests::reconcile_only_reads_and_preserves_pending_on_mismatch ... ok
+test engine::tests::ambiguous_results_survive_restart_and_never_resend ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.51s
+
+     Running unittests src/main.rs (rust/target/debug/deps/hip3_oracle_rs-1d7d963bf0eec395)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/cli.rs (rust/target/debug/deps/cli-44ed382aede387be)
+
+running 2 tests
+test cli_preflight_is_read_only_and_dry_run_is_explicit ... ok
+test monitoring_and_sigterm_finish_cleanly ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.10s
+
+     Running tests/safety.rs (rust/target/debug/deps/safety-0e4b103c55623c64)
+
+running 7 tests
+test formatting_obeys_wire_limits ... ok
+test groups_cannot_gain_votes_by_duplicate_endpoints ... ok
+test snapshot_requires_exact_complete_universe ... ok
+test outlier_quorum_and_staleness ... ok
+test config_rejects_unsafe_inputs ... ok
+test official_sdk_signature_vectors ... ok
+test durable_state_scope_lock_and_corruption ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+   Doc-tests hip3_oracle_rs
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

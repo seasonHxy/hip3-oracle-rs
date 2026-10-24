@@ -1,0 +1,28 @@
+[Unit]
+Description=HIP-3 native Rust oracle
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=hip3-oracle
+Group=hip3-oracle
+WorkingDirectory=/opt/hip3-oracle
+EnvironmentFile=/etc/hip3-oracle/secrets.env
+ExecStart=/opt/hip3-oracle/hip3-oracle-rs --config /etc/hip3-oracle/live.local.json run --live
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=60
+KillSignal=SIGTERM
+StateDirectory=hip3-oracle
+UMask=0077
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/hip3-oracle
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+CapabilityBoundingSet=
+
+[Install]
+WantedBy=multi-user.target
